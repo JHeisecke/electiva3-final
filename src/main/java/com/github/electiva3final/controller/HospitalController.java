@@ -1,4 +1,4 @@
-package com.github.electiva3final.rest;
+package com.github.electiva3final.controller;
 
 import com.github.electiva3final.beans.Hospital;
 import com.github.electiva3final.service.HospitalService;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/hospital")
-public class HospitalREST {
+public class HospitalController {
 
     private static final String GET_HOSPITAL    = "/get/{id}";
     private static final String SAVE_HOSPITAL    = "/save";
