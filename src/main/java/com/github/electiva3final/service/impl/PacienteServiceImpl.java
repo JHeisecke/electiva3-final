@@ -1,12 +1,8 @@
 package com.github.electiva3final.service.impl;
 
-import com.github.electiva3final.dto.MedicoDTO;
 import com.github.electiva3final.dto.PacienteDTO;
-import com.github.electiva3final.entity.Medico;
 import com.github.electiva3final.entity.Paciente;
-import com.github.electiva3final.repository.MedicoRepository;
 import com.github.electiva3final.repository.PacienteRepository;
-import com.github.electiva3final.service.MedicoService;
 import com.github.electiva3final.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,11 +28,7 @@ public class PacienteServiceImpl implements PacienteService {
     @Override
     public Paciente getPaciente(String ci) {
         Optional<Paciente> paciente = pacienteRepository.findById(ci);
-        if(paciente.isPresent()) {
-            return paciente.get();
-        } else {
-            //TODO retornar exception
-            return null;
-        }
+        //TODO retornar exception
+        return paciente.orElse(null);
     }
 }

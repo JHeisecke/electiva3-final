@@ -20,12 +20,8 @@ public class HospitalController {
 
     @GetMapping(value = GET_HOSPITAL)
     public ResponseEntity<?> getHospital(@PathVariable Long id) {
-        try {
-            Hospital entity = hospitalService.getHospital(id);
-            return new ResponseEntity<Hospital>(entity, HttpStatus.OK);
-        } catch (Exception e) {
-            throw e;
-        }
+        Hospital entity = hospitalService.getHospital(id);
+        return new ResponseEntity<>(entity, HttpStatus.OK);
     }
 
     @PostMapping(value = SAVE_HOSPITAL)

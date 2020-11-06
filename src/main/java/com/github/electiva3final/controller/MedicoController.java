@@ -1,9 +1,7 @@
 package com.github.electiva3final.controller;
 
 import com.github.electiva3final.dto.MedicoDTO;
-import com.github.electiva3final.entity.Hospital;
 import com.github.electiva3final.entity.Medico;
-import com.github.electiva3final.service.HospitalService;
 import com.github.electiva3final.service.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,12 +20,8 @@ public class MedicoController {
 
     @GetMapping(value = GET_MEDICO)
     public ResponseEntity<?> getMedico(@PathVariable String ci) {
-        try {
-            Medico entity = medicoService.getMedico(ci);
-            return new ResponseEntity<Medico>(entity, HttpStatus.OK);
-        } catch (Exception e) {
-            throw e;
-        }
+        Medico entity = medicoService.getMedico(ci);
+        return new ResponseEntity<>(entity, HttpStatus.OK);
     }
 
     @PostMapping(value = SAVE_MEDICO)

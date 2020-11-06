@@ -6,8 +6,6 @@ import com.github.electiva3final.repository.HospitalRepository;
 import com.github.electiva3final.service.HospitalService;
 import com.github.electiva3final.service.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -34,11 +32,7 @@ public class HospitalServiceImpl implements HospitalService {
     @Override
     public Hospital getHospital(Long id) {
         Optional<Hospital> hospital = hospitalRepository.findById(id);
-        if(hospital.isPresent()) {
-            return hospital.get();
-        } else {
-            //TODO retornar exception
-            return null;
-        }
+        //TODO retornar exception
+        return hospital.orElse(null);
     }
 }
