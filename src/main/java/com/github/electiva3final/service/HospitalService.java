@@ -4,4 +4,5 @@ import com.github.electiva3final.beans.Hospital;
 
 public interface HospitalService {
     public void saveHospital(Hospital hospital) throws Exception;
+    public Hospital getHospital(Long id);
 }

@@ -11,4 +11,9 @@ public class HospitalServiceImpl implements HospitalService {
     public void saveHospital(Hospital hospital) throws Exception {
 
     }
+
+    @Override
+    public Hospital getHospital(Long id) {
+        return new Hospital(id,"nombre","asd","asd","asd");
+    }
 }
