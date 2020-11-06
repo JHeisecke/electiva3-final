@@ -1,5 +1,6 @@
 package com.github.electiva3final.controller;
 
+import com.github.electiva3final.dto.HospitalDTO;
 import com.github.electiva3final.entity.Hospital;
 import com.github.electiva3final.service.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,9 @@ public class HospitalController {
     }
 
     @PostMapping(value = SAVE_HOSPITAL)
-    public ResponseEntity<?> saveHospital(@RequestBody Hospital hospital) {
+    public ResponseEntity<?> saveHospital(@RequestBody HospitalDTO dto) {
         try {
-            hospitalService.saveHospital(hospital);
+            hospitalService.saveHospital(dto);
             return new ResponseEntity<Void>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);

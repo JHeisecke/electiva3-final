@@ -1,23 +1,31 @@
 package com.github.electiva3final.service.impl;
 
+import com.github.electiva3final.dto.HospitalDTO;
 import com.github.electiva3final.entity.Hospital;
 import com.github.electiva3final.repository.HospitalRepository;
 import com.github.electiva3final.service.HospitalService;
+import com.github.electiva3final.service.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class HospitalServiceImpl implements HospitalService {
 
     @Autowired
     private HospitalRepository hospitalRepository;
+    @Autowired
+    private MedicoService medicoService;
 
     @Override
-    public void saveHospital(Hospital hospital) {
+    public void saveHospital(HospitalDTO dto) {
         try {
-            hospitalRepository.save(hospital);
+            Hospital entity =  HospitalDTO.convertToEntity(dto);
+            entity.setDirector(medicoService.getMedico(dto.getDirector()));
+            hospitalRepository.save(entity);
         } catch (Exception e) {
             throw e;
         }
@@ -25,7 +33,12 @@ public class HospitalServiceImpl implements HospitalService {
 
     @Override
     public Hospital getHospital(Long id) {
-        Hospital h = new Hospital();
-        return h;
+        Optional<Hospital> hospital = hospitalRepository.findById(id);
+        if(hospital.isPresent()) {
+            return hospital.get();
+        } else {
+            //TODO retornar exception
+            return null;
+        }
     }
 }

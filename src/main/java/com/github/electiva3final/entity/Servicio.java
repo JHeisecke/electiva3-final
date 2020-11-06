@@ -1,5 +1,6 @@
 package com.github.electiva3final.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="SERVICIO", schema = "public")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 public class Servicio {
     @Id

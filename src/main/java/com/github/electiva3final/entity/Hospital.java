@@ -1,5 +1,7 @@
 package com.github.electiva3final.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,6 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="HOSPITAL", schema = "public")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 public class Hospital {
     @Id
@@ -21,6 +24,7 @@ public class Hospital {
     private String ciudad;
     @Column(name = "TELEFONO")
     private String telefono;
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name = "DIRECTOR", referencedColumnName = "CI", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Medico director;
