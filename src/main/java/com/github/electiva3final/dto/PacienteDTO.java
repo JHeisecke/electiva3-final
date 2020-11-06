@@ -16,7 +16,7 @@ public class PacienteDTO {
         entity.setApellido(dto.getApellido());
         entity.setNombre(dto.getNombre());
         entity.setCi(dto.getCi());
-        entity.setFechaNacimiento(DateFormatter.convertToDateTime(dto.getFechaNacimiento()));
+        entity.setFechaNacimiento(DateFormatter.convertToDate(dto.getFechaNacimiento()));
         return entity;
     }
 }

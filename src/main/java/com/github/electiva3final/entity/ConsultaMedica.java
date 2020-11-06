@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * The persistent class for the CONSULTA_MEDICA database table.
@@ -43,9 +43,9 @@ public class ConsultaMedica {
     @Column(name = "NRO_HABITACION")
     private String nroHabitacion;
     @Column(name = "FEC_INGRESO")
-    private LocalDate fecIngreso;
+    private LocalDateTime fecIngreso;
     @Column(name = "FEC_SALIDA")
-    private LocalDate fecSalida;
+    private LocalDateTime fecSalida;
     @Column(name = "INTERNACION")
     private Boolean internacion;
 }
