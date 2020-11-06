@@ -56,8 +56,8 @@ CI_MEDICO varchar(255) references MEDICO(CI),
 OBSERVACION varchar(255),
 TRATAMIENTO varchar(255),
 NRO_HABITACION varchar(255),
-FEC_INGRESO date,
-FEC_SALIDA date,
+FEC_INGRESO time,
+FEC_SALIDA time,
 INTERNACION boolean
 );
 
