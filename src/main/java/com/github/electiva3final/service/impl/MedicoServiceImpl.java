@@ -1,5 +1,6 @@
 package com.github.electiva3final.service.impl;
 
+import com.github.electiva3final.dto.MedicoDTO;
 import com.github.electiva3final.entity.Hospital;
 import com.github.electiva3final.entity.Medico;
 import com.github.electiva3final.repository.HospitalRepository;
@@ -16,8 +17,9 @@ public class MedicoServiceImpl implements MedicoService {
     private MedicoRepository medicoRepository;
 
     @Override
-    public void saveMedico(Medico medico) {
+    public void saveMedico(MedicoDTO dto) {
         try {
+            Medico medico = MedicoDTO.convertToEntity(dto);
             medicoRepository.save(medico);
         } catch (Exception e) {
             throw e;
