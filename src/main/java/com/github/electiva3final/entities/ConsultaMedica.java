@@ -18,16 +18,16 @@ public class ConsultaMedica {
 
     @JoinColumn(name = "ID_HOSPITAL", referencedColumnName = "ID_HOSPITAL", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Hospital idHospital;
+    private Hospital hospital;
     @JoinColumn(name = "ID_SERVICIO", referencedColumnName = "ID_SERVICIO", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Servicio idServicio;
+    private Servicio servicio;
     @JoinColumn(name = "CI_MEDICO", referencedColumnName = "CI", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Medico ciMedico;
+    private Medico medico;
     @JoinColumn(name = "CI_PACIENTE", referencedColumnName = "CI", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Paciente ciPaciente;
+    private Paciente paciente;
     @Column(name = "OBSERVACION")
     private String observacion;
     @Column(name = "TRATAMIENTO")

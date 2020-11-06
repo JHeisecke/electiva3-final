@@ -16,10 +16,10 @@ public class HistorialClinico {
     private Long idHistorial;
     @JoinColumn(name = "CI_PACIENTE", referencedColumnName = "CI", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Paciente ciPaciente;
+    private Paciente paciente;
     @JoinColumn(name = "ID_CONSULTA", referencedColumnName = "ID_CONSULTA", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private ConsultaMedica idConsulta;
+    private ConsultaMedica consulta;
 
     public HistorialClinico(){}
 
