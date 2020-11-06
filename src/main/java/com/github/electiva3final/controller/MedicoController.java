@@ -14,6 +14,7 @@ public class MedicoController {
 
     private static final String GET_MEDICO     = "/get/{ci}";
     private static final String SAVE_MEDICO    = "/save";
+    private static final String DELETE_MEDICO  = "/delete/{ci}";
 
     @Autowired
     private MedicoService medicoService;
@@ -28,6 +29,16 @@ public class MedicoController {
     public ResponseEntity<?> saveMedico(@RequestBody MedicoDTO dto) {
         try {
             medicoService.saveMedico(dto);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping(value = DELETE_MEDICO)
+    public ResponseEntity<?> deleteMedico(@PathVariable String ci) {
+        try {
+            medicoService.deleteMedico(ci);
             return new ResponseEntity<Void>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);

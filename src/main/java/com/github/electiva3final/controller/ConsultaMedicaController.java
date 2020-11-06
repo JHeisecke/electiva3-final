@@ -17,6 +17,7 @@ public class ConsultaMedicaController {
 
     private static final String GET_CONSULTA_MEDICA    = "/get/{id}";
     private static final String SAVE_CONSULTA_MEDICA   = "/save";
+    private static final String DELETE_CONSULTA_MEDICA   = "/delete/{id}";
 
     @Autowired
     private ConsultaMedicaService consultaMedicaService;
@@ -31,6 +32,16 @@ public class ConsultaMedicaController {
     public ResponseEntity<?> saveConsultaMedica(@RequestBody ConsultaMedicaDTO dto) {
         try {
             consultaMedicaService.saveConsultaMedica(dto);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping(value = DELETE_CONSULTA_MEDICA)
+    public ResponseEntity<?> deleteConsultaMedica(@PathVariable Long id) {
+        try {
+            consultaMedicaService.deleteConsultaMedica(id);
             return new ResponseEntity<Void>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);

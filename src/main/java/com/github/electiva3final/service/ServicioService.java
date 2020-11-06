@@ -6,4 +6,5 @@ import com.github.electiva3final.entity.Servicio;
 public interface ServicioService {
     void saveServicio(ServicioDTO dto);
     Servicio getServicio(String idServicio);
+    public void deleteServicio(String idServicio);
 }

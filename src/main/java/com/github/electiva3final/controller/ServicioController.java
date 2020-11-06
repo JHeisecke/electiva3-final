@@ -12,20 +12,21 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/servicio")
 public class ServicioController {
 
-    private static final String GET_SERVICIO    = "/get/{idServicio}";
-    private static final String SAVE_SERVICIO    = "/save";
+    private static final String GET_SERVICIO       = "/get/{idServicio}";
+    private static final String SAVE_SERVICIO      = "/save";
+    private static final String DELETE_SERVICIO    = "/delete/{idServicio}";
 
     @Autowired
     private ServicioService servicioService;
 
     @GetMapping(value = GET_SERVICIO)
-    public ResponseEntity<?> getPaciente(@PathVariable String idServicio) {
+    public ResponseEntity<?> getServicio(@PathVariable String idServicio) {
         Servicio entity = servicioService.getServicio(idServicio);
         return new ResponseEntity<>(entity, HttpStatus.OK);
     }
 
     @PostMapping(value = SAVE_SERVICIO)
-    public ResponseEntity<?> savePaciente(@RequestBody ServicioDTO dto) {
+    public ResponseEntity<?> saveServicio(@RequestBody ServicioDTO dto) {
         try {
             servicioService.saveServicio(dto);
             return new ResponseEntity<Void>(HttpStatus.OK);
@@ -33,4 +34,15 @@ public class ServicioController {
             return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping(value = DELETE_SERVICIO)
+    public ResponseEntity<?> deleteServicio(@PathVariable String idServicio) {
+        try {
+            servicioService.deleteServicio(idServicio);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
+

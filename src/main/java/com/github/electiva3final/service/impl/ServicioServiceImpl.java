@@ -29,4 +29,9 @@ public class ServicioServiceImpl implements ServicioService {
         //TODO retornar exception
         return servicio.orElse(null);
     }
+
+    @Override
+    public void deleteServicio(String idServicio) {
+        servicioRepository.deleteById(idServicio);
+    }
 }

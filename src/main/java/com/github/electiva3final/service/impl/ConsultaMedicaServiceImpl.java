@@ -36,4 +36,9 @@ public class ConsultaMedicaServiceImpl implements ConsultaMedicaService {
         //TODO retornar exception
         return consultaMedica.orElse(null);
     }
+
+    @Override
+    public void deleteConsultaMedica(Long id) {
+        consultaMedicaRepository.deleteById(id);
+    }
 }

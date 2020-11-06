@@ -31,4 +31,9 @@ public class MedicoServiceImpl implements MedicoService {
         //TODO retornar exception
         return medico.orElse(null);
     }
+
+    @Override
+    public void deleteMedico(String ci) {
+        medicoRepository.deleteById(ci);
+    }
 }

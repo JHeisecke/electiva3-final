@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/historial-clinico")
 public class HistorialClinicoController {
 
-    private static final String GET_HISTORIAL_CLINICO    = "/get/{id}";
-    private static final String SAVE_HISTORIAL_CLINICO   = "/save";
+    private static final String GET_HISTORIAL_CLINICO       = "/get/{id}";
+    private static final String SAVE_HISTORIAL_CLINICO      = "/save";
+    private static final String DELETE_HISTORIAL_CLINICO    = "/delete/{id}";
 
     @Autowired
     private HistorialClinicoService historialClinicoService;
@@ -28,6 +29,16 @@ public class HistorialClinicoController {
     public ResponseEntity<?> saveHistorialClinico(@RequestBody HistorialClinicoDTO dto) {
         try {
             historialClinicoService.saveHistorialClinico(dto);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping(value = DELETE_HISTORIAL_CLINICO)
+    public ResponseEntity<?> deleteHistorialClinico(@PathVariable Long id) {
+        try {
+            historialClinicoService.deleteHistorialClinico(id);
             return new ResponseEntity<Void>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);

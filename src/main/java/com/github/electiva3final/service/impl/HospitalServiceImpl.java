@@ -35,4 +35,9 @@ public class HospitalServiceImpl implements HospitalService {
         //TODO retornar exception
         return hospital.orElse(null);
     }
+
+    @Override
+    public void deleteHospital(Long id) {
+        hospitalRepository.deleteById(id);
+    }
 }

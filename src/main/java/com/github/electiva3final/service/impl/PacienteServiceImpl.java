@@ -31,4 +31,9 @@ public class PacienteServiceImpl implements PacienteService {
         //TODO retornar exception
         return paciente.orElse(null);
     }
+
+    @Override
+    public void deletePaciente(String ci) {
+        pacienteRepository.deleteById(ci);
+    }
 }

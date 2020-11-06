@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.*;
 public class HospitalController {
 
     private static final String GET_HOSPITAL    = "/get/{id}";
-    private static final String SAVE_HOSPITAL    = "/save";
+    private static final String SAVE_HOSPITAL   = "/save";
+    private static final String DELETE_HOSPITAL = "/delete/{id}";
 
     @Autowired
     private HospitalService hospitalService;
@@ -28,6 +29,16 @@ public class HospitalController {
     public ResponseEntity<?> saveHospital(@RequestBody HospitalDTO dto) {
         try {
             hospitalService.saveHospital(dto);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping(value = DELETE_HOSPITAL)
+    public ResponseEntity<?> deleteHospital(@PathVariable Long id) {
+        try {
+            hospitalService.deleteHospital(id);
             return new ResponseEntity<Void>(HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);

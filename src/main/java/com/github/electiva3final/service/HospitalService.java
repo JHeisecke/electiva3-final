@@ -6,4 +6,6 @@ import com.github.electiva3final.entity.Hospital;
 public interface HospitalService {
     public void saveHospital(HospitalDTO dto);
     public Hospital getHospital(Long id);
+    public void deleteHospital(Long id);
+
 }

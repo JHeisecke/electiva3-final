@@ -38,4 +38,9 @@ public class HistorialClinicoServiceImpl implements HistorialClinicoService {
         //TODO retornar exception
         return historialClinico.orElse(null);
     }
+
+    @Override
+    public void deleteHistorialClinico(Long id) {
+        historialClinicoRepository.deleteById(id);
+    }
 }
