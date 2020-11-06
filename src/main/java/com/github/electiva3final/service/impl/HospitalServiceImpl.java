@@ -14,6 +14,7 @@ public class HospitalServiceImpl implements HospitalService {
 
     @Override
     public Hospital getHospital(Long id) {
-        return new Hospital(id,"nombre","asd","asd","asd");
+        Hospital h = new Hospital();
+        return h;
     }
 }
