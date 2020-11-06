@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "77b6078d-cab6-4907-bb12-1061de367ede",
+		"name": "Electiva3-Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hospital",
+			"item": [
+				{
+					"name": "saveHospital",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idHospital\": null,\r\n    \"nombre\": \"La Costa\",\r\n    \"ciudad\": \"Asuncion\",\r\n    \"telefono\": \"0983459846\",\r\n    \"director\": \"4374941\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/hospital/save",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"hospital",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHospital",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/hospital/get/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"hospital",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Medico",
+			"item": [
+				{
+					"name": "saveMedico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ci\": 4374941,\r\n    \"nombre\": \"Javier\",\r\n    \"apellido\": \"Apellido\",\r\n    \"fechaNacimiento\": \"22/06/2020\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/medico/save",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"medico",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMedico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/medico/get/4374941",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"medico",
+								"get",
+								"4374941"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Paciente",
+			"item": [
+				{
+					"name": "savePaciente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ci\": 5748412,\r\n    \"nombre\": \"Jose\",\r\n    \"apellido\": \"Listorti\",\r\n    \"fechaNacimiento\": \"22/06/2020\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/paciente/save",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"paciente",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPaciente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/paciente/get/5748412",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"paciente",
+								"get",
+								"5748412"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Servicio",
+			"item": [
+				{
+					"name": "saveServicio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idServicio\": \"MU_SANGRE\",\r\n    \"nombre\": \"Muestra de Sangre\",\r\n    \"comentario\": \"Analisis de sangre\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/servicio/save",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"servicio",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getServicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/servicio/get/UROLOGIA",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"servicio",
+								"get",
+								"UROLOGIA"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "05b94cd0-7533-45f1-b715-14542f753d30",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2ba2006e-e0d5-4384-a64f-6ba6d1b045da",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ConsultaMedica",
+			"item": [
+				{
+					"name": "saveConsultaMedica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idServicio\": \"MED_INT\",\r\n    \"nombre\": \"Medicina Interna\",\r\n    \"comentario\": \"La medicina interna es una especialidad médica que atiende integralmente los problemas de salud en pacientes adultos, ingresados en un centro hospitalario o en consultas ambulatorias\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/consulta/save",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"consulta",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getConsultaMedica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/servicio/get/UROLOGIA",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"servicio",
+								"get",
+								"UROLOGIA"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a6ad0463-83c5-47f5-8b10-6da2cfb125f9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5544a37-8319-4eb9-b0e5-935040f5487c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
