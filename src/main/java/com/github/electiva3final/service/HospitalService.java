@@ -1,8 +1,8 @@
 package com.github.electiva3final.service;
 
-import com.github.electiva3final.entities.Hospital;
+import com.github.electiva3final.entity.Hospital;
 
 public interface HospitalService {
-    public void saveHospital(Hospital hospital) throws Exception;
+    public void saveHospital(Hospital hospital);
     public Hospital getHospital(Long id);
 }

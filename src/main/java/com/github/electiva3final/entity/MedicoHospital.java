@@ -1,6 +1,6 @@
-package com.github.electiva3final.entities;
+package com.github.electiva3final.entity;
 
-import com.github.electiva3final.entities.pk.MedicoHospitalPK;
+import com.github.electiva3final.entity.pk.MedicoHospitalPK;
 import lombok.Data;
 
 import javax.persistence.*;

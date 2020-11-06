@@ -1,4 +1,4 @@
-package com.github.electiva3final.entities;
+package com.github.electiva3final.entity;
 
 import lombok.Data;
 
@@ -14,6 +14,7 @@ import java.time.LocalDate;
 public class ConsultaMedica {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_CONSULTA")
     private Long idConsulta;
 
     @JoinColumn(name = "ID_HOSPITAL", referencedColumnName = "ID_HOSPITAL", nullable = false)

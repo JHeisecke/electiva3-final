@@ -1,4 +1,4 @@
-package com.github.electiva3final.entities;
+package com.github.electiva3final.entity;
 
 import lombok.Data;
 
@@ -13,6 +13,7 @@ import javax.persistence.*;
 public class Hospital {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_HOSPITAL")
     private Long idHospital;
     @Column(name = "NOMBRE")
     private String nombre;
@@ -20,8 +21,6 @@ public class Hospital {
     private String ciudad;
     @Column(name = "TELEFONO")
     private String telefono;
-    @Column(name = "DIRECCION")
-    private String direccion;
     @JoinColumn(name = "DIRECTOR", referencedColumnName = "CI", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Medico director;

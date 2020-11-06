@@ -1,4 +1,4 @@
-package com.github.electiva3final.entities;
+package com.github.electiva3final.entity;
 
 import lombok.Data;
 
@@ -6,12 +6,12 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 /**
- * The persistent class for the MEDICO database table.
+ * The persistent class for the PACIENTE database table.
  */
 @Entity
-@Table(name="MEDICO", schema = "public")
+@Table(name="PACIENTE", schema = "public")
 @Data
-public class Medico {
+public class Paciente {
     @Id
     @Column(name = "CI")
     private String ci;
@@ -21,6 +21,7 @@ public class Medico {
     private String apellido;
     @Column(name = "FEC_NACIMIENTO")
     private LocalDate fechaNacimiento;
-    public Medico(){}
+
+    public Paciente(){}
 
 }

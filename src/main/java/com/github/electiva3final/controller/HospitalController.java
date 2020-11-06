@@ -1,14 +1,11 @@
 package com.github.electiva3final.controller;
 
-import com.github.electiva3final.entities.Hospital;
+import com.github.electiva3final.entity.Hospital;
 import com.github.electiva3final.service.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/hospital")
@@ -27,6 +24,16 @@ public class HospitalController {
             return new ResponseEntity<Hospital>(entity, HttpStatus.OK);
         } catch (Exception e) {
             throw e;
+        }
+    }
+
+    @PostMapping(value = SAVE_HOSPITAL)
+    public ResponseEntity<?> saveHospital(@RequestBody Hospital hospital) {
+        try {
+            hospitalService.saveHospital(hospital);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }

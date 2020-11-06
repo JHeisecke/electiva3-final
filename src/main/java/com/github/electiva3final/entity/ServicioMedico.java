@@ -1,14 +1,11 @@
-package com.github.electiva3final.entities;
+package com.github.electiva3final.entity;
 
-import com.github.electiva3final.entities.pk.MedicoHospitalPK;
-import com.github.electiva3final.entities.pk.ServicioMedicoPK;
+import com.github.electiva3final.entity.pk.ServicioMedicoPK;
 import lombok.Data;
 
-import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.io.Serializable;
 
 /**
  * The persistent class for the MEDICO_HOSPITAL database table.

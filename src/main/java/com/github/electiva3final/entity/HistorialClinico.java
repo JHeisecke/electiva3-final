@@ -1,4 +1,4 @@
-package com.github.electiva3final.entities;
+package com.github.electiva3final.entity;
 
 import lombok.Data;
 
