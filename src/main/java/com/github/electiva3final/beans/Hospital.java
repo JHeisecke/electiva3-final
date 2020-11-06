@@ -20,6 +20,16 @@ public class Hospital {
     @Column(name = "DIRECCION")
     private String direccion;
 
+    public Hospital(){}
+    
+    public Hospital(Long idHospital, String nombre, String ciudad, String telefono, String direccion) {
+        this.idHospital = idHospital;
+        this.nombre = nombre;
+        this.ciudad = ciudad;
+        this.telefono = telefono;
+        this.direccion = direccion;
+    }
+
     public Long getIdHospital() {
         return idHospital;
     }
