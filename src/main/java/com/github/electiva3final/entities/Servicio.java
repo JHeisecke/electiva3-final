@@ -1,4 +1,4 @@
-package com.github.electiva3final.beans;
+package com.github.electiva3final.entities;
 
 import lombok.Data;
 

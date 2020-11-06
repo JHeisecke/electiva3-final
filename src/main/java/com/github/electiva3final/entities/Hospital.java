@@ -1,9 +1,6 @@
-package com.github.electiva3final.beans;
+package com.github.electiva3final.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -25,6 +22,9 @@ public class Hospital {
     private String telefono;
     @Column(name = "DIRECCION")
     private String direccion;
+    @JoinColumn(name = "DIRECTOR", referencedColumnName = "CI", nullable = false)
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Medico director;
 
     public Hospital() {}
 }

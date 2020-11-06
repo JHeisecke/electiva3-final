@@ -1,6 +1,6 @@
 package com.github.electiva3final.service.impl;
 
-import com.github.electiva3final.beans.Hospital;
+import com.github.electiva3final.entities.Hospital;
 import com.github.electiva3final.service.HospitalService;
 import org.springframework.stereotype.Service;
 
