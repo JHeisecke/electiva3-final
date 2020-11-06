@@ -51,7 +51,6 @@ create table CONSULTA_MEDICA (
 ID_CONSULTA bigserial primary key,
 ID_HOSPITAL bigint references HOSPITAL(ID_HOSPITAL),
 ID_SERVICIO varchar(255) references SERVICIO(ID_SERVICIO),
-CI_PACIENTE varchar(255) references PACIENTE(CI),
 CI_MEDICO varchar(255) references MEDICO(CI),
 OBSERVACION varchar(255),
 TRATAMIENTO varchar(255),
@@ -61,9 +60,9 @@ FEC_SALIDA time,
 INTERNACION boolean
 );
 
-/*create table HISTORIAL_CLINICO (
+create table HISTORIAL_CLINICO (
 ID_HISTORIAL bigserial primary key,
 CI_PACIENTE varchar(255) references PACIENTE(CI),
 ID_CONSULTA bigint references CONSULTA_MEDICA(ID_CONSULTA)
-);*/
+);
 
