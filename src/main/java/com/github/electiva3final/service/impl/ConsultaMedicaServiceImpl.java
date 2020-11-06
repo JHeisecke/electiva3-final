@@ -15,20 +15,17 @@ public class ConsultaMedicaServiceImpl implements ConsultaMedicaService {
     @Autowired
     private ConsultaMedicaRepository consultaMedicaRepository;
     @Autowired
-    private MedicoService medicoService;
-    @Autowired
     private HospitalService hospitalService;
     @Autowired
-    private PacienteService pacienteService;
-    @Autowired
     private ServicioService servicioService;
+    @Autowired
+    private MedicoService medicoService;
 
     @Override
     public void saveConsultaMedica(ConsultaMedicaDTO dto) {
         ConsultaMedica entity =  ConsultaMedicaDTO.convertToEntity(dto);
         entity.setHospital(hospitalService.getHospital(dto.getIdHospital()));
         entity.setMedico(medicoService.getMedico(dto.getCiMedico()));
-        entity.setPaciente(pacienteService.getPaciente(dto.getCiPaciente()));
         entity.setServicio(servicioService.getServicio(dto.getIdServicio()));
         consultaMedicaRepository.save(entity);
     }

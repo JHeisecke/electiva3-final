@@ -1,5 +1,6 @@
 package com.github.electiva3final.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -14,9 +15,11 @@ public class HistorialClinico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idHistorial;
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name = "CI_PACIENTE", referencedColumnName = "CI", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Paciente paciente;
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @JoinColumn(name = "ID_CONSULTA", referencedColumnName = "ID_CONSULTA", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private ConsultaMedica consulta;

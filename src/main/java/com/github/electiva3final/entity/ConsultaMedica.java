@@ -32,10 +32,6 @@ public class ConsultaMedica {
     @JoinColumn(name = "CI_MEDICO", referencedColumnName = "CI", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Medico medico;
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @JoinColumn(name = "CI_PACIENTE", referencedColumnName = "CI", nullable = false)
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Paciente paciente;
     @Column(name = "OBSERVACION")
     private String observacion;
     @Column(name = "TRATAMIENTO")
