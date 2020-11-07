@@ -36,12 +36,8 @@ public class HospitalController {
 
     @PostMapping(value = SAVE_HOSPITAL)
     public ResponseEntity<?> saveHospital(@RequestBody HospitalDTO dto) {
-        try {
-            hospitalService.saveHospital(dto);
-            return new ResponseEntity<Void>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        hospitalService.saveHospital(dto);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = DELETE_HOSPITAL)

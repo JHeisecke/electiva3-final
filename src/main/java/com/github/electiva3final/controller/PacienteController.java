@@ -27,12 +27,8 @@ public class PacienteController {
 
     @PostMapping(value = SAVE_PACIENTE)
     public ResponseEntity<?> savePaciente(@RequestBody PacienteDTO dto) {
-        try {
-            pacienteService.savePaciente(dto);
-            return new ResponseEntity<Void>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        pacienteService.savePaciente(dto);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = DELETE_PACIENTE)

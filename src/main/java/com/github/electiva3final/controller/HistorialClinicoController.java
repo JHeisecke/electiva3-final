@@ -27,12 +27,8 @@ public class HistorialClinicoController {
 
     @PostMapping(value = SAVE_HISTORIAL_CLINICO)
     public ResponseEntity<?> saveHistorialClinico(@RequestBody HistorialClinicoDTO dto) {
-        try {
-            historialClinicoService.saveHistorialClinico(dto);
-            return new ResponseEntity<Void>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        historialClinicoService.saveHistorialClinico(dto);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = DELETE_HISTORIAL_CLINICO)

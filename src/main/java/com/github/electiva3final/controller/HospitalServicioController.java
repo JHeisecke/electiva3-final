@@ -2,6 +2,7 @@ package com.github.electiva3final.controller;
 
 import com.github.electiva3final.dto.HospitalServicioDTO;
 import com.github.electiva3final.entity.HospitalServicio;
+import com.github.electiva3final.exception.BusinessException;
 import com.github.electiva3final.service.HospitalServicioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,8 @@ public class HospitalServicioController {
     private HospitalServicioService hospitalServicioService;
 
     @GetMapping(value = GET_HOSPITAL_SERVICIO)
-    public ResponseEntity<?> getHospitalServicio(@PathVariable Long idHospital, @PathVariable String idServicio) {
+    public ResponseEntity<?> getHospitalServicio(@PathVariable Long idHospital, @PathVariable String idServicio)
+            throws BusinessException {
         HospitalServicio entity = hospitalServicioService.getHospitalServicio(idHospital,idServicio);
         return new ResponseEntity<>(entity, HttpStatus.OK);
     }

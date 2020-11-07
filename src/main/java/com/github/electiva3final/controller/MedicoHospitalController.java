@@ -4,6 +4,7 @@ import com.github.electiva3final.dto.HospitalServicioDTO;
 import com.github.electiva3final.dto.MedicoHospitalDTO;
 import com.github.electiva3final.entity.HospitalServicio;
 import com.github.electiva3final.entity.MedicoHospital;
+import com.github.electiva3final.exception.BusinessException;
 import com.github.electiva3final.service.HospitalServicioService;
 import com.github.electiva3final.service.MedicoHospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,19 +24,16 @@ public class MedicoHospitalController {
     private MedicoHospitalService medicoHospitalService;
 
     @GetMapping(value = GET_MEDICO_HOSPITAL)
-    public ResponseEntity<?> getMedicoHospital(@PathVariable Long idHospital, @PathVariable String ciMedico) {
+    public ResponseEntity<?> getMedicoHospital(@PathVariable Long idHospital, @PathVariable String ciMedico)
+            throws BusinessException {
         MedicoHospital entity = medicoHospitalService.getMedicoHospital(idHospital, ciMedico);
         return new ResponseEntity<>(entity, HttpStatus.OK);
     }
 
     @PostMapping(value = SAVE_MEDICO_HOSPITAL)
     public ResponseEntity<?> saveMedicoHospital(@RequestBody MedicoHospitalDTO dto) {
-        try {
-            medicoHospitalService.saveMedicoHospital(dto);
-            return new ResponseEntity<Void>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        medicoHospitalService.saveMedicoHospital(dto);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = DELETE_MEDICO_HOSPITAL)

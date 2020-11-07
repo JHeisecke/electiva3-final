@@ -3,11 +3,14 @@ package com.github.electiva3final.service.impl;
 import com.github.electiva3final.dto.ConsultaMedicaDTO;
 import com.github.electiva3final.entity.ConsultaMedica;
 import com.github.electiva3final.entity.HospitalServicio;
+import com.github.electiva3final.entity.ServicioMedico;
 import com.github.electiva3final.exception.BusinessException;
 import com.github.electiva3final.repository.ConsultaMedicaRepository;
 import com.github.electiva3final.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -19,6 +22,10 @@ public class ConsultaMedicaServiceImpl implements ConsultaMedicaService {
     @Autowired
     private HospitalServicioService hospitalServicioService;
     @Autowired
+    private ServicioMedicoService servicioMedicoService;
+    @Autowired
+    private MedicoHospitalService medicoHospitalService;
+    @Autowired
     private HospitalService hospitalService;
     @Autowired
     private ServicioService servicioService;
@@ -26,6 +33,7 @@ public class ConsultaMedicaServiceImpl implements ConsultaMedicaService {
     private MedicoService medicoService;
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = BusinessException.class)
     public void saveConsultaMedica(ConsultaMedicaDTO dto) throws BusinessException {
         if(dto.getInternacion()) {
             HospitalServicio servicioCamas =
@@ -42,6 +50,10 @@ public class ConsultaMedicaServiceImpl implements ConsultaMedicaService {
                 hospitalServicioService.save(servicioCamas);
             }
         }
+        //Control de datos correctos
+        servicioMedicoService.getServicioMedico(dto.getIdServicio(), dto.getCiMedico());
+        medicoHospitalService.getMedicoHospital(dto.getIdHospital(), dto.getCiMedico());
+
         ConsultaMedica entity =  ConsultaMedicaDTO.convertToEntity(dto);
         entity.setHospital(hospitalService.getHospital(dto.getIdHospital()));
         entity.setMedico(medicoService.getMedico(dto.getCiMedico()));

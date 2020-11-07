@@ -36,12 +36,8 @@ public class MedicoController {
 
     @PostMapping(value = SAVE_MEDICO)
     public ResponseEntity<?> saveMedico(@RequestBody MedicoDTO dto) {
-        try {
-            medicoService.saveMedico(dto);
-            return new ResponseEntity<Void>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        medicoService.saveMedico(dto);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = DELETE_MEDICO)

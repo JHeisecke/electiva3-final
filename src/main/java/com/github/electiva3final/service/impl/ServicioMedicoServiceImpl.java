@@ -5,6 +5,7 @@ import com.github.electiva3final.entity.MedicoHospital;
 import com.github.electiva3final.entity.ServicioMedico;
 import com.github.electiva3final.entity.pk.MedicoHospitalPK;
 import com.github.electiva3final.entity.pk.ServicioMedicoPK;
+import com.github.electiva3final.exception.BusinessException;
 import com.github.electiva3final.repository.MedicoHospitalRepository;
 import com.github.electiva3final.repository.ServicioMedicoRepository;
 import com.github.electiva3final.service.MedicoService;
@@ -40,12 +41,15 @@ public class ServicioMedicoServiceImpl implements ServicioMedicoService {
     }
 
     @Override
-    public ServicioMedico getServicioMedico(String idServicio, String ciMedico) {
+    public ServicioMedico getServicioMedico(String idServicio, String ciMedico) throws BusinessException {
         ServicioMedicoPK pk = new ServicioMedicoPK();
         pk.setMedico(medicoService.getMedico(ciMedico));
         pk.setServicio(servicioService.getServicio(idServicio));
         Optional<ServicioMedico> entity =  servicioMedicoRepository.findById(pk);
-        return entity.orElse(null);
+        if(!entity.isPresent()) {
+            throw new BusinessException("El medico no ofrece ese servicio");
+        }
+        return entity.get();
     }
 
     @Override

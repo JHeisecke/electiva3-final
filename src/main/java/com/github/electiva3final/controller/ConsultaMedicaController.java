@@ -4,6 +4,7 @@ import com.github.electiva3final.dto.ConsultaMedicaDTO;
 import com.github.electiva3final.dto.HospitalDTO;
 import com.github.electiva3final.entity.ConsultaMedica;
 import com.github.electiva3final.entity.Hospital;
+import com.github.electiva3final.exception.BusinessException;
 import com.github.electiva3final.service.ConsultaMedicaService;
 import com.github.electiva3final.service.HospitalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +30,9 @@ public class ConsultaMedicaController {
     }
 
     @PostMapping(value = SAVE_CONSULTA_MEDICA)
-    public ResponseEntity<?> saveConsultaMedica(@RequestBody ConsultaMedicaDTO dto) {
-        try {
-            consultaMedicaService.saveConsultaMedica(dto);
-            return new ResponseEntity<Void>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public ResponseEntity<?> saveConsultaMedica(@RequestBody ConsultaMedicaDTO dto) throws BusinessException {
+        consultaMedicaService.saveConsultaMedica(dto);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = DELETE_CONSULTA_MEDICA)

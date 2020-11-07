@@ -27,12 +27,8 @@ public class ServicioController {
 
     @PostMapping(value = SAVE_SERVICIO)
     public ResponseEntity<?> saveServicio(@RequestBody ServicioDTO dto) {
-        try {
-            servicioService.saveServicio(dto);
-            return new ResponseEntity<Void>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        servicioService.saveServicio(dto);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = DELETE_SERVICIO)

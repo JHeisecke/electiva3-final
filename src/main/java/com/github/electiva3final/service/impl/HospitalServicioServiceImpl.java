@@ -3,6 +3,7 @@ package com.github.electiva3final.service.impl;
 import com.github.electiva3final.dto.HospitalServicioDTO;
 import com.github.electiva3final.entity.HospitalServicio;
 import com.github.electiva3final.entity.pk.HospitalServicioPK;
+import com.github.electiva3final.exception.BusinessException;
 import com.github.electiva3final.repository.HospitalServicioRepository;
 import com.github.electiva3final.service.HospitalService;
 import com.github.electiva3final.service.HospitalServicioService;
@@ -37,12 +38,15 @@ public class HospitalServicioServiceImpl implements HospitalServicioService {
     }
 
     @Override
-    public HospitalServicio getHospitalServicio(Long idHospital, String idServicio) {
+    public HospitalServicio getHospitalServicio(Long idHospital, String idServicio) throws BusinessException {
         HospitalServicioPK pk = new HospitalServicioPK();
         pk.setHospital(hospitalService.getHospital(idHospital));
         pk.setServicio(servicioService.getServicio(idServicio));
         Optional<HospitalServicio> entity =  hospitalServicioRepository.findById(pk);
-        return entity.orElse(null);
+        if(!entity.isPresent()) {
+            throw new BusinessException("El servicio no se ofrece en el hospital");
+        }
+        return entity.get();
     }
 
     @Override
