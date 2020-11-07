@@ -29,6 +29,7 @@ public class HospitalServicioServiceImpl implements HospitalServicioService {
             HospitalServicioPK pk = new HospitalServicioPK();
             pk.setHospital(hospitalService.getHospital(dto.getIdHospital()));
             pk.setServicio(servicioService.getServicio(dto.getIdServicio()));
+            entity.setPk(pk);
             hospitalServicioRepository.save(entity);
         } catch (Exception e) {
             throw e;
@@ -46,6 +47,13 @@ public class HospitalServicioServiceImpl implements HospitalServicioService {
 
     @Override
     public void deleteHospitalServicio(Long idHospital, String idServicio) {
-
+        try {
+            HospitalServicioPK pk = new HospitalServicioPK();
+            pk.setHospital(hospitalService.getHospital(idHospital));
+            pk.setServicio(servicioService.getServicio(idServicio));
+            hospitalServicioRepository.deleteById(pk);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 }

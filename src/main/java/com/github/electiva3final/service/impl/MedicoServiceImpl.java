@@ -7,6 +7,7 @@ import com.github.electiva3final.service.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,6 +31,11 @@ public class MedicoServiceImpl implements MedicoService {
         Optional<Medico> medico = medicoRepository.findById(ci);
         //TODO retornar exception
         return medico.orElse(null);
+    }
+
+    @Override
+    public List<Medico> getAllMedico() {
+        return (List<Medico>) medicoRepository.findAll();
     }
 
     @Override

@@ -8,11 +8,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/medico")
 public class MedicoController {
 
     private static final String GET_MEDICO     = "/get/{ci}";
+    private static final String GET_ALL_MEDICO = "/get/all";
     private static final String SAVE_MEDICO    = "/save";
     private static final String DELETE_MEDICO  = "/delete/{ci}";
 
@@ -23,6 +26,12 @@ public class MedicoController {
     public ResponseEntity<?> getMedico(@PathVariable String ci) {
         Medico entity = medicoService.getMedico(ci);
         return new ResponseEntity<>(entity, HttpStatus.OK);
+    }
+
+    @GetMapping(value = GET_ALL_MEDICO)
+    public ResponseEntity<?> getAllMedico() {
+        List<Medico> entities = (List<Medico>) medicoService.getAllMedico();
+        return new ResponseEntity<>(entities, HttpStatus.OK);
     }
 
     @PostMapping(value = SAVE_MEDICO)
