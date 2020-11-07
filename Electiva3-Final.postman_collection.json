@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idHospital\": null,\r\n    \"nombre\": \"La Costa\",\r\n    \"ciudad\": \"Asuncion\",\r\n    \"telefono\": \"0983459846\",\r\n    \"director\": \"4374941\"\r\n}",
+							"raw": "{\r\n    \"idHospital\": null,\r\n    \"nombre\": \"Migone\",\r\n    \"ciudad\": \"Asuncion\",\r\n    \"telefono\": \"098451123\",\r\n    \"director\": \"857496\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -55,6 +55,337 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "getAllHospital",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/hospital/get/all",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"hospital",
+								"get",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteHospital",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/hospital/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"hospital",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "HospitalServicio",
+			"item": [
+				{
+					"name": "saveHospitalServicio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idHospital\": 1,\r\n    \"camasDisponibles\": 200,\r\n    \"camasTotal\": 200,\r\n    \"idServicio\": \"UROLOGIA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/hospital-servicio/save",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"hospital-servicio",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getHospitalServicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/hospital-servicio/get/1/UROLOGIA",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"hospital-servicio",
+								"get",
+								"1",
+								"UROLOGIA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteHospitalServicio",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/hospital/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"hospital",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5e5103bc-1046-40a7-a28f-dfed14559d5b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "de26d279-0a66-44aa-bec3-a4b5557444fd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "MedicoHospital",
+			"item": [
+				{
+					"name": "saveMedicoHospital",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idHospital\": 1,\r\n    \"ciMedico\": 4374941,\r\n    \"ocupaDireccion\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/medico-hospital/save",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"medico-hospital",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMedicoHospital",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/medico-hospital/get/1/4374941",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"medico-hospital",
+								"get",
+								"1",
+								"4374941"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteMedicoHospital",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/hospital/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"hospital",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5bfcb20c-65ec-4bf1-8456-64844e53f079",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c0b60f4d-43f2-4b4b-9969-ce08af88106d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ServicioMedico",
+			"item": [
+				{
+					"name": "saveServicioMedico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idServicio\": \"UROLOGIA\",\r\n    \"ciMedico\": \"4374941\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/servicio-medico/save",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"servicio-medico",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getServicioMedico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/medico-hospital/get/1/4374941",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"medico-hospital",
+								"get",
+								"1",
+								"4374941"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteServicioMedico",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/hospital/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"hospital",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ff512479-7a20-470e-b76c-7ed019b64938",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "63ae78db-087f-4b32-8343-2f726d76b038",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -69,7 +400,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"ci\": 4374941,\r\n    \"nombre\": \"Javier\",\r\n    \"apellido\": \"Apellido\",\r\n    \"fechaNacimiento\": \"22/06/2020\"\r\n}",
+							"raw": "{\r\n    \"ci\": 741965,\r\n    \"nombre\": \"Juan\",\r\n    \"apellido\": \"Espinola\",\r\n    \"fechaNacimiento\": \"22/06/1966\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -104,6 +435,46 @@
 							"path": [
 								"medico",
 								"get",
+								"4374941"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllMedico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/medico/get/all",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"medico",
+								"get",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteMedico",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/medico/delete/4374941",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"medico",
+								"delete",
 								"4374941"
 							]
 						}
@@ -163,6 +534,26 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "deletePaciente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/paciente/delete/5748412",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"paciente",
+								"delete",
+								"5748412"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -170,6 +561,26 @@
 		{
 			"name": "Servicio",
 			"item": [
+				{
+					"name": "getServicio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/servicio/get/UROLOGIA",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"servicio",
+								"get",
+								"UROLOGIA"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "saveServicio",
 					"request": {
@@ -199,19 +610,19 @@
 					"response": []
 				},
 				{
-					"name": "getServicio",
+					"name": "deleteServicio",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:9090/servicio/get/UROLOGIA",
+							"raw": "localhost:9090/servicio/delete/UROLOGIA",
 							"host": [
 								"localhost"
 							],
 							"port": "9090",
 							"path": [
 								"servicio",
-								"get",
+								"delete",
 								"UROLOGIA"
 							]
 						}
@@ -247,13 +658,33 @@
 			"name": "ConsultaMedica",
 			"item": [
 				{
+					"name": "getConsultaMedica",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/consulta-medica/get/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"consulta-medica",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "saveConsultaMedica",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idServicio\": \"MED_INT\",\r\n    \"nombre\": \"Medicina Interna\",\r\n    \"comentario\": \"La medicina interna es una especialidad médica que atiende integralmente los problemas de salud en pacientes adultos, ingresados en un centro hospitalario o en consultas ambulatorias\"\r\n}",
+							"raw": "{\r\n    \"idConsulta\": null,\r\n    \"idHospital\": 1,\r\n    \"idServicio\": \"MU_SANGRE\",\r\n    \"ciMedico\": \"4374941\",\r\n    \"observacion\": \"Sangre era de color verde\",\r\n    \"tratamiento\": null,\r\n    \"nroHabitacion\": null,\r\n    \"fecIngreso\": \"2018-03-29T13:34:40\",\r\n    \"fecSalida\": \"2018-03-29T15:34:40\",\r\n    \"internacion\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -261,13 +692,13 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:9090/consulta/save",
+							"raw": "localhost:9090/consulta-medica/save",
 							"host": [
 								"localhost"
 							],
 							"port": "9090",
 							"path": [
-								"consulta",
+								"consulta-medica",
 								"save"
 							]
 						}
@@ -275,20 +706,20 @@
 					"response": []
 				},
 				{
-					"name": "getConsultaMedica",
+					"name": "deleteConsultaMedica",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "localhost:9090/servicio/get/UROLOGIA",
+							"raw": "localhost:9090/consulta-medica/delete/1",
 							"host": [
 								"localhost"
 							],
 							"port": "9090",
 							"path": [
-								"servicio",
-								"get",
-								"UROLOGIA"
+								"consulta-medica",
+								"delete",
+								"1"
 							]
 						}
 					},
@@ -310,6 +741,102 @@
 					"listen": "test",
 					"script": {
 						"id": "b5544a37-8319-4eb9-b0e5-935040f5487c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "HistorialClinico",
+			"item": [
+				{
+					"name": "getHistorialClinico",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/historial-clinico/get/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"historial-clinico",
+								"get",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveHistorialClinico",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idHistorial\": null,\r\n    \"ciPaciente\": \"5748412\",\r\n    \"idConsulta\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9090/historial-clinico/save",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"historial-clinico",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteHistorialClinico",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/historial-clinico/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"historial-clinico",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bfc5d787-a98f-4cc8-80d7-d9a8f10817c7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "354a5b11-4200-40c8-855e-a1e65359d748",
 						"type": "text/javascript",
 						"exec": [
 							""
