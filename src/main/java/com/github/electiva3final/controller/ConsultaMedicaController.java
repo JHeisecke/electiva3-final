@@ -30,9 +30,13 @@ public class ConsultaMedicaController {
     }
 
     @PostMapping(value = SAVE_CONSULTA_MEDICA)
-    public ResponseEntity<?> saveConsultaMedica(@RequestBody ConsultaMedicaDTO dto) throws BusinessException {
-        consultaMedicaService.saveConsultaMedica(dto);
-        return new ResponseEntity<Void>(HttpStatus.OK);
+    public ResponseEntity<?> saveConsultaMedica(@RequestBody ConsultaMedicaDTO dto) {
+        try {
+            consultaMedicaService.saveConsultaMedica(dto);
+            return new ResponseEntity<Void>(HttpStatus.OK);
+        } catch(BusinessException e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @DeleteMapping(value = DELETE_CONSULTA_MEDICA)

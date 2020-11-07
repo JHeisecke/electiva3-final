@@ -1,6 +1,7 @@
 package com.github.electiva3final.service.impl;
 
 import com.github.electiva3final.dto.ConsultaMedicaDTO;
+import com.github.electiva3final.dto.HistorialClinicoDTO;
 import com.github.electiva3final.entity.ConsultaMedica;
 import com.github.electiva3final.entity.HospitalServicio;
 import com.github.electiva3final.entity.ServicioMedico;
@@ -19,6 +20,8 @@ public class ConsultaMedicaServiceImpl implements ConsultaMedicaService {
 
     @Autowired
     private ConsultaMedicaRepository consultaMedicaRepository;
+    @Autowired
+    private HistorialClinicoService historialClinicoService;
     @Autowired
     private HospitalServicioService hospitalServicioService;
     @Autowired
@@ -59,6 +62,7 @@ public class ConsultaMedicaServiceImpl implements ConsultaMedicaService {
         entity.setMedico(medicoService.getMedico(dto.getCiMedico()));
         entity.setServicio(servicioService.getServicio(dto.getIdServicio()));
         consultaMedicaRepository.save(entity);
+        historialClinicoService.saveHistorialClinico(new HistorialClinicoDTO(dto.getCiPaciente(), dto.getIdConsulta()));
     }
 
     @Override

@@ -24,10 +24,13 @@ public class ServicioMedicoController {
     private ServicioMedicoService servicioMedicoService;
 
     @GetMapping(value = GET_MEDICO_SERVICIO)
-    public ResponseEntity<?> getServicioMedico(@PathVariable String idServicio, @PathVariable String ciMedico)
-            throws BusinessException {
-        ServicioMedico entity = servicioMedicoService.getServicioMedico(idServicio, ciMedico);
-        return new ResponseEntity<>(entity, HttpStatus.OK);
+    public ResponseEntity<?> getServicioMedico(@PathVariable String idServicio, @PathVariable String ciMedico) {
+        try {
+            ServicioMedico entity = servicioMedicoService.getServicioMedico(idServicio, ciMedico);
+            return new ResponseEntity<>(entity, HttpStatus.OK);
+        } catch(BusinessException e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PostMapping(value = SAVE_MEDICO_SERVICIO)

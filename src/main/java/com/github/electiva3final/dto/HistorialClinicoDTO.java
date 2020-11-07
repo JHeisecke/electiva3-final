@@ -13,4 +13,8 @@ public class HistorialClinicoDTO {
 
     public HistorialClinicoDTO(){}
 
+    public HistorialClinicoDTO(String ciPaciente, Long idConsulta){
+        this.ciPaciente = ciPaciente;
+        this.idConsulta = idConsulta;
+    }
 }
