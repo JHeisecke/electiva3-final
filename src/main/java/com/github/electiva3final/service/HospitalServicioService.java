@@ -5,8 +5,9 @@ import com.github.electiva3final.entity.Hospital;
 import com.github.electiva3final.entity.HospitalServicio;
 
 public interface HospitalServicioService {
-    public void saveHospitalServicio(HospitalServicioDTO dto);
-    public HospitalServicio getHospitalServicio(Long idHospital, String idServicio);
-    public void deleteHospitalServicio(Long idHospital, String idServicio);
+    void saveHospitalServicio(HospitalServicioDTO dto);
+    HospitalServicio getHospitalServicio(Long idHospital, String idServicio);
+    void deleteHospitalServicio(Long idHospital, String idServicio);
+    void save(HospitalServicio entity);
 
 }

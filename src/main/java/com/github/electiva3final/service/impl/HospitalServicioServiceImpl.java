@@ -30,7 +30,7 @@ public class HospitalServicioServiceImpl implements HospitalServicioService {
             pk.setHospital(hospitalService.getHospital(dto.getIdHospital()));
             pk.setServicio(servicioService.getServicio(dto.getIdServicio()));
             entity.setPk(pk);
-            hospitalServicioRepository.save(entity);
+            save(entity);
         } catch (Exception e) {
             throw e;
         }
@@ -55,5 +55,9 @@ public class HospitalServicioServiceImpl implements HospitalServicioService {
         } catch (Exception e) {
             throw e;
         }
+    }
+
+    public void save(HospitalServicio entity) {
+        hospitalServicioRepository.save(entity);
     }
 }
