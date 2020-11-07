@@ -8,10 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
- * The persistent class for the MEDICO_HOSPITAL database table.
+ * The persistent class for the SERVICIO_MEDICO database table.
  */
 @Entity
-@Table(name="MEDICO_HOSPITAL", schema = "public")
+    @Table(name="SERVICIO_MEDICO", schema = "public")
 @Data
 public class ServicioMedico {
     @EmbeddedId

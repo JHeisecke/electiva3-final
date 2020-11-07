@@ -15,20 +15,20 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/medico-hospital")
 public class MedicoHospitalController {
 
-    private static final String GET_MEDICO_SERVICIO    = "/get/{idHospital}/{ciMedico}";
-    private static final String SAVE_MEDICO_SERVICIO   = "/save";
-    private static final String DELETE_MEDICO_SERVICIO = "/delete/{idHospital}/{ciMedico}";
+    private static final String GET_MEDICO_HOSPITAL    = "/get/{idHospital}/{ciMedico}";
+    private static final String SAVE_MEDICO_HOSPITAL   = "/save";
+    private static final String DELETE_MEDICO_HOSPITAL = "/delete/{idHospital}/{ciMedico}";
 
     @Autowired
     private MedicoHospitalService medicoHospitalService;
 
-    @GetMapping(value = GET_MEDICO_SERVICIO)
+    @GetMapping(value = GET_MEDICO_HOSPITAL)
     public ResponseEntity<?> getMedicoHospital(@PathVariable Long idHospital, @PathVariable String ciMedico) {
         MedicoHospital entity = medicoHospitalService.getMedicoHospital(idHospital, ciMedico);
         return new ResponseEntity<>(entity, HttpStatus.OK);
     }
 
-    @PostMapping(value = SAVE_MEDICO_SERVICIO)
+    @PostMapping(value = SAVE_MEDICO_HOSPITAL)
     public ResponseEntity<?> saveMedicoHospital(@RequestBody MedicoHospitalDTO dto) {
         try {
             medicoHospitalService.saveMedicoHospital(dto);
@@ -38,7 +38,7 @@ public class MedicoHospitalController {
         }
     }
 
-    @DeleteMapping(value = DELETE_MEDICO_SERVICIO)
+    @DeleteMapping(value = DELETE_MEDICO_HOSPITAL)
     public ResponseEntity<?> deleteMedicoHospital(@PathVariable Long idHospital, @PathVariable String ciMedico) {
         try {
             medicoHospitalService.deleteMedicoHospital(idHospital,ciMedico);
